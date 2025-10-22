@@ -1,11 +1,17 @@
 #Imports
 import tkinter as tk
+from tkinter import ttk
+
 
 
 #Turns it on, and the title of the window
 root = tk.Tk()
 title = root.title('tutorial_window')
 
+#Buttons!
+tk.Label(root, text='This is an older label/button').pack()
+
+ttk.Label(root, text='This is a newer,themed label!').pack()
 
 #Text Label
 message = tk.Label(root, text="Hello, World!")
@@ -28,6 +34,11 @@ center_y = int(screen_height/2 - window_height / 2)
 
 #Hits the bullseye every dang time!
 root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+
+
+#Tranparency of window
+root.attributes('-alpha',0.8)
+
 
 #'parrently I need this
 #Note to self: KEEP THIS AT THE END OF THE CODE, JESUS CHRIST YOU STUPIDO, NOTHING WILL WORK IF YOU DON'T!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
