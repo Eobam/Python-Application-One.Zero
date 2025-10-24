@@ -1,18 +1,23 @@
 #Imports
 import tkinter as tk
 from tkinter import ttk
-
-
+from tkinter import *
+from tkinter.ttk import *
 
 #Turns it on, and the title of the window
 root = tk.Tk()
 title = root.title('tutorial_window')
 
-#Commands (button)
-
-def callback():
+def new_window():
     pass
 
+class NewWindow(Toplevel):
+    def __init__(self, master=None):
+        super().__init__(master)
+        self.title("New Window")
+        self.geometry("250x150")
+
+        Label(self, text="This is a new window").pack(pady=20)
 
 #Buttons!
 exit_button = ttk.Button(
@@ -27,6 +32,12 @@ exit_button.pack(
     expand=True
 )
 
+page1_button = ttk.Button(
+    root,
+    text='Page_1',
+    command=new_window()
+)
+
 #Labels!
 tk.Label(root, text='This is an older label').pack()
 
@@ -39,6 +50,7 @@ message.pack()
 
 #puts the button in a specific spot
 exit_button.place(x=100, y=20)
+page1_button.place(x=0, y=20)
 
 #Window Height + Width
 window_width = 300
@@ -56,7 +68,7 @@ center_y = int(screen_height/2 - window_height / 2)
 root.geometry('1000x1000')
 
 #Tranparency of window
-root.attributes('-alpha',0.8)
+root.attributes('-alpha', 0.9)
 
 
 #'parrently I need this
