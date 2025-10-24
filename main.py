@@ -8,8 +8,27 @@ from tkinter import ttk
 root = tk.Tk()
 title = root.title('tutorial_window')
 
+#Commands (button)
+
+def callback():
+    pass
+
+
 #Buttons!
-tk.Label(root, text='This is an older label/button').pack()
+exit_button = ttk.Button(
+    root,
+    text='Exit',
+    command=lambda: root.quit()
+)
+
+exit_button.pack(
+    ipadx=5,
+    ipady=5,
+    expand=True
+)
+
+#Labels!
+tk.Label(root, text='This is an older label').pack()
 
 ttk.Label(root, text='This is a newer,themed label!').pack()
 
@@ -18,7 +37,8 @@ message = tk.Label(root, text="Hello, World!")
 message.pack()
 
 
-
+#puts the button in a specific spot
+exit_button.place(x=100, y=20)
 
 #Window Height + Width
 window_width = 300
@@ -32,9 +52,8 @@ screen_height = root.winfo_screenheight()
 center_x = int(screen_width/2 - window_width / 2)
 center_y = int(screen_height/2 - window_height / 2)
 
-#Hits the bullseye every dang time!
-root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
-
+#Makes it big
+root.geometry('1000x1000')
 
 #Tranparency of window
 root.attributes('-alpha',0.8)
